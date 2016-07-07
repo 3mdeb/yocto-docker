@@ -13,3 +13,9 @@ RUN apt-get update && apt-get install -y \
     chrpath \
     socat \
     libsdl1.2-dev
+
+RUN useradd -ms /bin/bash build && \
+    usermod -aG sudo build
+
+USER build
+WORKDIR /home/build
