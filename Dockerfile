@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     chrpath \
     socat \
-    libsdl1.2-dev
+    libsdl1.2-dev \
+    cpio
 
 RUN useradd -ms /bin/bash build && \
     usermod -aG sudo build
