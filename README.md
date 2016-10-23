@@ -1,10 +1,3 @@
-Build Docker image
-------------------
-
-```
-docker build -t 3mdeb/yocto-docker .
-```
-
 Clone Poky and checkout
 -----------------------
 
@@ -14,16 +7,17 @@ cd poky
 git checkout -b krogoth origin/krogoth
 ```
 
-Build 
+Build Docker image
+------------------
+
+```
+git clone git@github.com:3mdeb/yocto-docker.git
+docker build -t 3mdeb/yocto-docker yocto-docker
+```
 
 Build sample image
 ------------------
 
 ```
-docker run --rm -it \
--v $(pwd):$(pwd) \
--v ~/.ssh:/home/build/.ssh \
--v ~/.gitconfig:/home/build/.gitconfig \
-3mdeb/yocto-docker \
-/bin/bash -c "cd $(pwd) && source oe-init-build-env && bitbake core-image-sato"
+./yocto-docker/docker-bake.sh core-image-minimal
 ```
