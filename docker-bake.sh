@@ -5,4 +5,4 @@ docker run --rm -it \
 -v ~/.ssh:/home/build/.ssh \
 -v ~/.gitconfig:/home/build/.gitconfig \
 3mdeb/yocto-docker \
-/bin/bash -c "cd $(pwd) && source oe-init-build-env && bitbake $1"
+/bin/bash -c "cd $(pwd) && source oe-init-build-env && bitbake $@"
