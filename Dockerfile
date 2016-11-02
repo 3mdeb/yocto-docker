@@ -13,7 +13,9 @@ RUN apt-get clean && apt-get update && apt-get install -y \
     chrpath \
     socat \
     libsdl1.2-dev \
-    cpio
+    cpio \
+    gcc \
+    g++
 
 RUN useradd -ms /bin/bash build && \
     usermod -aG sudo build
