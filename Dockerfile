@@ -15,7 +15,8 @@ RUN apt-get clean && apt-get update && apt-get install -y \
     libsdl1.2-dev \
     cpio \
     gcc \
-    g++
+    g++ \
+    python3
 
 RUN useradd -ms /bin/bash build && \
     usermod -aG sudo build
