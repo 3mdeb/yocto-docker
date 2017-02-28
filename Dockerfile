@@ -16,7 +16,8 @@ RUN apt-get clean && apt-get update && apt-get install -y \
     cpio \
     gcc \
     g++ \
-    python3
+    python3 \
+    libssl-dev
 
 RUN useradd -ms /bin/bash build && \
     usermod -aG sudo build
