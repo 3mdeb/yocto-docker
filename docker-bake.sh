@@ -6,4 +6,5 @@ docker run --rm -it \
 -v ~/.gitconfig:/home/build/.gitconfig \
 3mdeb/yocto-docker \
 /bin/bash -c "ssh -T -o StrictHostKeyChecking=no git@github.com; \
+              ssh -T -o StrictHostKeyChecking=no git@git.ti.com; \
               cd $(pwd) && source oe-init-build-env && bitbake $*"
