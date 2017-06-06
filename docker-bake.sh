@@ -24,7 +24,6 @@ if [ "$1" = "--extra-cmd" ]; then
             exit 1
             ;;
         esac
-        shift
     done
     shift 2
 fi
