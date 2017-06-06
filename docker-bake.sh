@@ -2,9 +2,9 @@
 
 function printHelp {
     echo -e "Runs bitbake inside Yocto build container\n"
-    echo -e "\t -e \"flag1 flag2\" - pass optional flags for extra commands before bitbake starts\n"
+    echo -e "\t --extra-cmd \"flag1 flag2\" - pass optional flags for extra commands before bitbake starts\n"
     echo "Example:"
-    echo "./docker-bake -e \"github git-ti\" core-image-minimal"
+    echo "./docker-bake --extra-cmd \"github git-ti\" core-image-minimal"
 }
 
 EXTRA_CMD=""
