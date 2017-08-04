@@ -15,6 +15,9 @@ if [ "$1" = "--extra-cmd" ]; then
             "github")
             EXTRA_CMD+="ssh -T -o StrictHostKeyChecking=no git@github.com;"
             ;;
+            "gitlab")
+            EXTRA_CMD+="ssh -T -o StrictHostKeyChecking=no git@gitlab.com;"
+            ;;
             "git-ti")
             EXTRA_CMD+="ssh -T -o StrictHostKeyChecking=no git@git.ti.com;"
             ;;
