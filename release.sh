@@ -18,7 +18,8 @@ BUMP="$1"
   "$BUMP" != "pre" ] && echo "Invalid BUMP" && exit 1
 
 # ensure we're up to date
-git pull
+CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+git pull origin $CURRENT_BRANCH
 
 # bump version
 docker run --rm -v "$PWD":/app treeder/bump $BUMP
