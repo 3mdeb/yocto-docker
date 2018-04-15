@@ -48,5 +48,7 @@ RUN apt-get install -y \
 RUN useradd -ms /bin/bash build && \
     usermod -aG sudo build
 
+ADD VERSION .
+
 USER build
 WORKDIR /home/build
