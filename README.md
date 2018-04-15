@@ -25,6 +25,12 @@ Build Docker image
 ------------------
 
 ```
-git clone git@github.com:3mdeb/yocto-docker.git
-docker build -t 3mdeb/yocto-docker yocto-docker
+./build.sh
 ```
+
+Release image to dockerhub
+--------------------------
+
+./release.sh VERSION_BUMP
+
+`VERSION_BUMP` can be: `major`, `minor`, `patch`
