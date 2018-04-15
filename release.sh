@@ -29,10 +29,11 @@ echo "version: $version"
 ./build.sh
 
 # tag
-git checkout -b "rel_$version"
+BRANCH="rel_$version"
+git checkout -b $BRANCH
 git commit -am "release $version"
 git tag -a "$version" -m "version $version"
-git push
+git push origin $BRANCH
 git push --tags
 
 docker tag $USERNAME/$IMAGE:latest $USERNAME/$IMAGE:$version
