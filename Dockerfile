@@ -27,6 +27,7 @@ RUN apt-get install -y \
     unzip \
     texinfo \
     gcc-multilib \
+    g++-multilib \
     build-essential \
     chrpath \
     socat \
