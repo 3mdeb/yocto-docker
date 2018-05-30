@@ -18,7 +18,7 @@ Build sample image
 ------------------
 
 ```
-./yocto-docker/docker-bake.sh core-image-minimal
+BUILD_DIR=build ./yocto-docker/docker-bake.sh core-image-minimal
 ```
 
 Build Docker image

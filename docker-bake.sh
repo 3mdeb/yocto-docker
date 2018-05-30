@@ -4,7 +4,7 @@ function printHelp {
     echo -e "Runs bitbake inside Yocto build container\n"
     echo -e "\t --extra-cmd \"flag1 flag2\" - pass optional flags for extra commands before bitbake starts\n"
     echo "Example:"
-    echo "./docker-bake --extra-cmd \"github git-ti\" core-image-minimal"
+    echo "BUILD_DIR=build ./docker-bake --extra-cmd \"github git-ti\" core-image-minimal"
 }
 
 EXTRA_CMD=""
@@ -31,6 +31,12 @@ if [ "$1" = "--extra-cmd" ]; then
     shift 2
 fi
 
+if [ -z $BUILD_DIR ]; then
+    echo "[WARNING]: \"BUILD_DIR\" variable not present in environment"
+    echo "[WARNING]: Defaulting to BUILD_DIR=\"build\""
+    BUILD_DIR="build"
+fi
+
 docker run --rm -it \
 -v $(pwd):$(pwd) \
 -v $(dirname $SSH_AUTH_SOCK):$(dirname $SSH_AUTH_SOCK) -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK  \
@@ -38,4 +44,4 @@ docker run --rm -it \
 3mdeb/yocto-docker \
 /bin/bash -c " \
               ${EXTRA_CMD} \
-              cd $(pwd) && source oe-init-build-env && bitbake $*"
+              cd $(pwd) && source oe-init-build-env $BUILD_DIR && bitbake $*"
