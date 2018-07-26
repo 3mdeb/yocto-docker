@@ -31,10 +31,16 @@ if [ "$1" = "--extra-cmd" ]; then
     shift 2
 fi
 
+if [ -z $POKY_DIR ]; then
+    POKY_DIR="$PWD"
+    echo "[WARNING]: \"POKY_DIR\" variable not present in environment"
+    echo "[WARNING]: Defaulting to POKY_DIR=\"$POKY_DIR\""
+fi
+
 if [ -z $BUILD_DIR ]; then
+    BUILD_DIR="$POKY_DIR/build"
     echo "[WARNING]: \"BUILD_DIR\" variable not present in environment"
-    echo "[WARNING]: Defaulting to BUILD_DIR=\"build\""
-    BUILD_DIR="build"
+    echo "[WARNING]: Defaulting to BUILD_DIR=\"$BUILD_DIR\""
 fi
 
 docker run --rm -it \
@@ -44,4 +50,4 @@ docker run --rm -it \
 3mdeb/yocto-docker \
 /bin/bash -c " \
               ${EXTRA_CMD} \
-              cd $(pwd) && source oe-init-build-env $BUILD_DIR && bitbake $*"
+              cd $POKY_DIR && source oe-init-build-env $BUILD_DIR && bitbake $*"
