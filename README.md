@@ -34,3 +34,23 @@ Release image to dockerhub
 ./release.sh VERSION_BUMP
 
 `VERSION_BUMP` can be: `major`, `minor`, `patch`
+
+Troubleshooting
+----------------
+
+If similar message appears:
+
+```
+dirname: missing operand
+Try 'dirname --help' for more information.
+dirname: missing operand
+Try 'dirname --help' for more information.
+```
+
+It probably means that your `SSH key` is not exposed via the
+[ssh-agent](https://linux.die.net/man/1/ssh-agent). In this case you could run:
+
+```
+eval `ssh-agent`
+ssh-add
+```
