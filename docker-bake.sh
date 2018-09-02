@@ -43,6 +43,11 @@ if [ -z $BUILD_DIR ]; then
     echo "[WARNING]: Defaulting to BUILD_DIR=\"$BUILD_DIR\""
 fi
 
+if [ -z $SSH_AUTH_SOCK ]; then
+    eval `ssh-agent`
+    ssh-add
+fi
+
 docker run --rm -it \
 -v $(pwd):$(pwd) \
 -v $(dirname $SSH_AUTH_SOCK):$(dirname $SSH_AUTH_SOCK) -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK  \
