@@ -48,7 +48,7 @@ if [ -z $SSH_AUTH_SOCK ]; then
     ssh-add
 fi
 
-docker run --rm -it \
+docker run --rm -t \
 -v $(pwd):$(pwd) \
 -v $(dirname $SSH_AUTH_SOCK):$(dirname $SSH_AUTH_SOCK) -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK  \
 -v ~/.gitconfig:/home/build/.gitconfig \
