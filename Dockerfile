@@ -47,7 +47,8 @@ RUN apt-get install -y \
     iputils-ping \
     libsdl1.2-dev \
     xterm \
-    libssl-dev && \
+    libssl-dev \
+    tmux && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
