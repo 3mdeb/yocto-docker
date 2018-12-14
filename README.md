@@ -12,18 +12,18 @@ cd poky
 git checkout -b krogoth origin/krogoth
 ```
 
+Build sample Yocto image
+------------------------
+
+```
+./yocto-docker/docker-bake.sh core-image-minimal
+```
+
 Pull Docker image
 -----------------
 
 ```
 docker pull 3mdeb/yocto-docker
-```
-
-Build sample image
-------------------
-
-```
-BUILD_DIR=build ./yocto-docker/docker-bake.sh core-image-minimal
 ```
 
 Build Docker image
@@ -33,12 +33,11 @@ Build Docker image
 ./build.sh
 ```
 
-Release image to dockerhub
---------------------------
+Release Docker image
+--------------------
 
-./release.sh VERSION_BUMP
-
-`VERSION_BUMP` can be: `major`, `minor`, `patch`
+Refer to the
+[docker-release-manager](https://github.com/3mdeb/docker-release-manager/blob/master/README.md)
 
 Troubleshooting
 ----------------
