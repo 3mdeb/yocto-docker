@@ -19,6 +19,7 @@ after_script:
   - docker images
 
 deploy:
+  skip_cleanup: true
   provider: script
   script: bash $MANAGER_SH push
   on:
