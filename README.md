@@ -1,3 +1,8 @@
+Docker container for Yocto builds
+---------------------------------
+
+[![Build Status](https://travis-ci.com/3mdeb/yocto-docker.svg?branch=master)](https://travis-ci.com/3mdeb/yocto-docker)
+
 Clone Poky and checkout
 -----------------------
 
