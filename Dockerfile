@@ -48,6 +48,7 @@ RUN apt-get install -y \
     libsdl1.2-dev \
     xterm \
     libssl-dev \
+    libncurses5-dev \
     tmux && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
