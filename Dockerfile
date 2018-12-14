@@ -47,7 +47,9 @@ RUN apt-get install -y \
     iputils-ping \
     libsdl1.2-dev \
     xterm \
-    libssl-dev
+    libssl-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash build && \
     usermod -aG sudo build
