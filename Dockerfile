@@ -3,7 +3,8 @@ FROM ubuntu:16.04
 MAINTAINER Piotr Król <piotr.krol@3mdeb.com>
 
 # Update the package repository
-RUN apt-get update && apt-get upgrade -y && apt-get install locales
+RUN apt-get update && \
+    apt-get install -y locales
 
 # Configure locales
 # noninteractive installation using debconf-set-selections does not seem
@@ -46,7 +47,11 @@ RUN apt-get install -y \
     iputils-ping \
     libsdl1.2-dev \
     xterm \
-    libssl-dev
+    libssl-dev \
+    libncurses5-dev \
+    tmux && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash build && \
     usermod -aG sudo build
