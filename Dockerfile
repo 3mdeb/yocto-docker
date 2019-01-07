@@ -53,6 +53,10 @@ RUN apt-get install -y \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Download and install repo tool
+RUN wget -O /usr/local/bin/repo https://storage.googleapis.com/git-repo-downloads/repo \
+    && chmod 755 /usr/local/bin/repo
+
 RUN useradd -ms /bin/bash build && \
     usermod -aG sudo build
 
