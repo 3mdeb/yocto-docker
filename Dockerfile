@@ -60,6 +60,9 @@ RUN wget -O /usr/local/bin/repo https://storage.googleapis.com/git-repo-download
 RUN useradd -ms /bin/bash build && \
     usermod -aG sudo build
 
+RUN useradd -ms /bin/bash -u 500 jenkinsbuilder && \
+    usermod -aG sudo jenkinsbuilder
+
 ADD VERSION .
 
 USER build
