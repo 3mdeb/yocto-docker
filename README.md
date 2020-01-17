@@ -9,7 +9,7 @@ Clone Poky and checkout
 ```
 git clone git://git.yoctoproject.org/poky
 cd poky
-git checkout -b krogoth origin/krogoth
+git checkout -b zeus origin/zeus
 ```
 
 Build sample Yocto image

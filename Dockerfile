@@ -19,6 +19,9 @@ RUN apt-get update && \
 # ENV LANGUAGE en_US:en
 # ENV LC_ALL en_US.UTF-8
 
+# Set up the non-interactive container build
+ARG DEBIAN_FRONTEND=noninteractive
+
 # Set up locales
 RUN apt-get -y install locales apt-utils sudo && \
     dpkg-reconfigure locales && \
