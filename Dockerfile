@@ -3,8 +3,8 @@ FROM ubuntu:18.04
 MAINTAINER Piotr Król <piotr.krol@3mdeb.com>
 
 # Update the package repository
-RUN apt-get update && \
-    apt-get install -y locales
+RUN apt-get update && apt-get install -y \
+	locales
 
 # Configure locales
 # noninteractive installation using debconf-set-selections does not seem
@@ -61,6 +61,7 @@ RUN apt-get install -y \
 # other dev dependencies
     libncurses5-dev \
 # other tools
+    xsltproc \
     vim \
     tmux && \
     apt-get clean && \
