@@ -62,6 +62,7 @@ RUN apt-get install -y \
     libncurses5-dev \
 # other tools
     xsltproc \
+    fop \
     vim \
     tmux && \
     apt-get clean && \
