@@ -2,35 +2,22 @@ FROM ubuntu:18.04
 
 MAINTAINER Piotr Król <piotr.krol@3mdeb.com>
 
-# Update the package repository
-RUN apt-get update && apt-get install -y \
-	locales
-
-# Configure locales
-# noninteractive installation using debconf-set-selections does not seem
-# to work due to a bug in Debian glibc:
-# https://bugs.launchpad.net/ubuntu/+source/glibc/+bug/1598326
-# RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
-#     echo 'LANG="en_US.UTF-8"'>/etc/default/locale && \
-#     dpkg-reconfigure --frontend=noninteractive locales && \
-#     update-locale LANG=en_US.UTF-8
-# RUN locale-gen en_US.UTF-8
-# ENV LANG en_US.UTF-8
-# ENV LANGUAGE en_US:en
-# ENV LC_ALL en_US.UTF-8
-
 # Set up the non-interactive container build
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Set up locales
-RUN apt-get -y install locales apt-utils sudo && \
+RUN apt-get update && apt-get install -y \
+    apt-utils locales sudo && \
     dpkg-reconfigure locales && \
     locale-gen en_US.UTF-8 && \
-    update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+    update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 ENV LANG en_US.utf8
 
+RUN apt-get update && apt-get install -y \
 # Yocto dependencies
-RUN apt-get install -y \
     gawk \
     wget \
     git-core \
@@ -58,11 +45,11 @@ RUN apt-get install -y \
     libsdl1.2-dev \
     pylint3 \
     xterm \
+    xsltproc \
+    fop \
 # other dev dependencies
     libncurses5-dev \
 # other tools
-    xsltproc \
-    fop \
     vim \
     tmux && \
     apt-get clean && \
