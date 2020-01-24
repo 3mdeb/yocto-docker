@@ -15,6 +15,7 @@ before_script:
 
 script:
   - bash $MANAGER_SH build
+  - cp $MANAGER_SH training/ && cd training/ && bash $MANAGER_SH build
 
 after_script:
   - docker images
@@ -22,6 +23,8 @@ after_script:
 deploy:
   skip_cleanup: true
   provider: script
-  script: bash $MANAGER_SH push
+  script:
+    - bash $MANAGER_SH push
+    - cp $MANAGER_SH training/ && cd training/ && bash $MANAGER_SH push
   on:
     branch: master

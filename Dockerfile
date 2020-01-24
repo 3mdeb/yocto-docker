@@ -17,41 +17,38 @@ RUN apt-get update && apt-get install -y \
 ENV LANG en_US.utf8
 
 RUN apt-get update && apt-get install -y \
-# Yocto dependencies
-    gawk \
-    wget \
-    git-core \
-    diffstat \
-    unzip \
-    texinfo \
-    gcc-multilib \
-    g++-multilib \
     build-essential \
     chrpath \
-    socat \
     cpio \
-    python \
-    python3 \
-    python3-pip \
-    python3-pexpect \
-    python3-git \
-    python3-jinja2 \
-    python-dev \
-    python3-dev \
-    xz-utils \
     debianutils \
+    diffstat \
+    fop \
+    g++-multilib \
+    gawk \
+    gcc-multilib \
+    git-core \
     iputils-ping \
     libegl1-mesa \
+    libncurses5-dev \
     libsdl1.2-dev \
     pylint3 \
-    xterm \
-    xsltproc \
-    fop \
-# other dev dependencies
-    libncurses5-dev \
-# other tools
+    python \
+    python-dev \
+    python3 \
+    python3-dev \
+    python3-git \
+    python3-jinja2 \
+    python3-pexpect \
+    python3-pip \
+    socat \
+    texinfo \
+    tmux \
+    unzip \
     vim \
-    tmux && \
+    wget \
+    xsltproc \
+    xterm \
+    xz-utils && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
