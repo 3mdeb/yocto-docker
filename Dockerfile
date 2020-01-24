@@ -61,6 +61,14 @@ RUN apt-get install -y \
 # other dev dependencies
     libncurses5-dev \
 # other tools
+    cmake \
+    man \
+    flex \
+    automake \
+    libtool \
+    gettext \
+    autoconf \
+    autopoint \
     xsltproc \
     fop \
     vim \
