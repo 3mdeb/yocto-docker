@@ -31,48 +31,46 @@ ENV LANG en_US.utf8
 
 # Yocto dependencies
 RUN apt-get install -y \
-    gawk \
-    wget \
-    git-core \
-    diffstat \
-    unzip \
-    texinfo \
-    gcc-multilib \
-    g++-multilib \
+    autoconf \
+    automake \
+    autopoint \
     build-essential \
     chrpath \
-    socat \
+    cmake \
     cpio \
-    python \
-    python3 \
-    python3-pip \
-    python3-pexpect \
-    python3-git \
-    python3-jinja2 \
-    python-dev \
-    python3-dev \
-    xz-utils \
     debianutils \
+    diffstat \
+    flex \
+    fop \
+    g++-multilib \
+    gawk \
+    gcc-multilib \
+    gettext \
+    git-core \
     iputils-ping \
     libegl1-mesa \
-    libsdl1.2-dev \
-    pylint3 \
-    xterm \
-# other dev dependencies
     libncurses5-dev \
-# other tools
-    cmake \
-    man \
-    flex \
-    automake \
+    libsdl1.2-dev \
     libtool \
-    gettext \
-    autoconf \
-    autopoint \
-    xsltproc \
-    fop \
+    man \
+    pylint3 \
+    python \
+    python-dev \
+    python3 \
+    python3-dev \
+    python3-git \
+    python3-jinja2 \
+    python3-pexpect \
+    python3-pip \
+    socat \
+    texinfo \
+    tmux \
+    unzip \
     vim \
-    tmux && \
+    wget \
+    xsltproc \
+    xterm \
+    xz-utils && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
