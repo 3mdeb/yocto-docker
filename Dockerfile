@@ -42,13 +42,13 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     socat \
     texinfo \
-    tmux && \
+    tmux \
     unzip \
     vim \
     wget \
     xsltproc \
     xterm \
-    xz-utils \
+    xz-utils && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
