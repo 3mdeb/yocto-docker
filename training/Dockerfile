@@ -16,6 +16,7 @@ RUN apt-get update && apt-get install -y \
     gettext \
     libtool \
     man \
+    meson \
     && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
