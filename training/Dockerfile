@@ -21,6 +21,11 @@ RUN apt-get update && apt-get install -y \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Add Toaster python packages 
+RUN pip3 install 'Django>1.8,<1.12' \
+    'beautifulsoup4>=4.4.0' \
+    pytz
+
 ADD rpcbind /etc/default/rpcbind
 
 # passwd: build
