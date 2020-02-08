@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     cmake \
     flex \
     gettext \
+    libgtk-3-dev \
     libtool \
     man \
     meson \
