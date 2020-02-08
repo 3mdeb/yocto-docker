@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     automake \
     autopoint \
     cmake \
+    graphviz \
     flex \
     gettext \
     libgtk-3-dev \
