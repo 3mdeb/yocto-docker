@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y \
     cpio \
     debianutils \
     diffstat \
+    dos2unix \
     fop \
     g++-multilib \
     gawk \
