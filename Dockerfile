@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
 ENV LANG en_US.utf8
 
 RUN apt-get update && apt-get install -y \
+    bc \
     build-essential \
     chrpath \
     cpio \
@@ -28,6 +29,7 @@ RUN apt-get update && apt-get install -y \
     gawk \
     gcc-multilib \
     git-core \
+    git-lfs \
     iputils-ping \
     libegl1-mesa \
     libncurses5-dev \
@@ -67,3 +69,5 @@ ADD VERSION .
 
 USER build
 WORKDIR /home/build
+
+RUN git lfs install
