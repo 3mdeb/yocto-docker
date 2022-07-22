@@ -51,7 +51,9 @@ RUN apt-get update && apt-get install -y \
     wget \
     xsltproc \
     xterm \
-    xz-utils && \
+    xz-utils \
+    liblz4-tool \
+    zstd && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
