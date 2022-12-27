@@ -1,6 +1,7 @@
 FROM ubuntu:18.04
 
 LABEL maintainer="Piotr Król <piotr.krol@3mdeb.com>"
+LABEL release="kirkstone"
 
 # Set up the non-interactive container build
 ARG DEBIAN_FRONTEND=noninteractive
