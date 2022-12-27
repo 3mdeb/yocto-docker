@@ -16,48 +16,60 @@ RUN apt-get update && apt-get install -y \
 
 ENV LANG en_US.utf8
 
+# Install packages listed in Yocto documentation as esential
 RUN apt-get update && apt-get install -y \
-    bc \
+    gawk \
+    wget \
+    git \
+    diffstat \
+    unzip \
+    texinfo \
+    gcc \
     build-essential \
     chrpath \
+    socat \
     cpio \
-    debianutils \
-    diffstat \
-    dos2unix \
-    fop \
-    g++-multilib \
-    gawk \
-    gcc-multilib \
-    git-core \
-    git-lfs \
-    iputils-ping \
-    libegl1-mesa \
-    libncurses5-dev \
-    libsdl1.2-dev \
-    pylint3 \
-    python \
-    python-dev \
     python3 \
-    python3-dev \
+    python3-pip \
+    python3-pexpect \
+    xz-utils \
+    debianutils \
+    iputils-ping \
     python3-git \
     python3-jinja2 \
-    python3-pexpect \
-    python3-pip \
-    socat \
-    texinfo \
-    tmux \
-    unzip \
-    vim \
-    wget \
-    xsltproc \
+    libegl1-mesa \
+    libsdl1.2-dev \
+    pylint3 \
     xterm \
-    xz-utils \
+    python3-subunit \
+    mesa-common-dev \
+    zstd \
     liblz4-tool \
-    zstd && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install apt-transport-https ca-certificates -y && \
+# Install packages added by 3mdeb
+RUN apt-get update && apt-get install -y \
+    bc \
+    dos2unix \
+    fop \
+    g++-multilib \
+    gcc-multilib \
+    git-lfs \
+    libncurses5-dev \
+    python3-dev \
+    tmux \
+    vim \
+    xsltproc && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install and update ca-certificates
+RUN apt-get update && apt-get install -y \
+    apt-transport-https \
+    ca-certificates && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* \
     update-ca-certificates
 
 # Download and install repo tool
