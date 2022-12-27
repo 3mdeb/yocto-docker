@@ -1,4 +1,4 @@
-FROM 3mdeb/yocto-docker:2.3.5
+FROM 3mdeb/yocto-docker:2.3.6
 
 LABEL maintainer="Piotr Król <piotr.krol@3mdeb.com>"
 LABEL release="kirkstone"
