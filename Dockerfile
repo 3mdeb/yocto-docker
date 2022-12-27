@@ -45,7 +45,7 @@ RUN apt-get update && apt-get install -y \
     python3-subunit \
     mesa-common-dev \
     zstd \
-    liblz4-tool \
+    liblz4-tool && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
@@ -70,7 +70,7 @@ RUN apt-get update && apt-get install -y \
     apt-transport-https \
     ca-certificates && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* \
+    rm -rf /var/lib/apt/lists/* && \
     update-ca-certificates
 
 # Download and install repo tool
