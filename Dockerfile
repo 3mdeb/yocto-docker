@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-MAINTAINER Piotr Król <piotr.krol@3mdeb.com>
+LABEL maintainer="Piotr Król <piotr.krol@3mdeb.com>"
 
 # Set up the non-interactive container build
 ARG DEBIAN_FRONTEND=noninteractive
