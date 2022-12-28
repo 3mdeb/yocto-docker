@@ -1,4 +1,4 @@
-FROM 3mdeb/yocto-docker:2.3.6
+FROM 3mdeb/yocto-docker:3.0.0
 
 LABEL maintainer="Piotr Król <piotr.krol@3mdeb.com>"
 LABEL release="kirkstone"
@@ -22,6 +22,12 @@ RUN apt-get update && apt-get install -y \
     meson && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+# Add packages required for building documentation
+RUN pip3 install \
+    sphinx \
+    sphinx_rtd_theme \
+    pyyaml
 
 ADD rpcbind /etc/default/rpcbind
 
