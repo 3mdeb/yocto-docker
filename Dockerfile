@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 
 LABEL maintainer="Piotr Król <piotr.krol@3mdeb.com>"
 LABEL release="kirkstone"
@@ -40,7 +40,6 @@ RUN apt-get update && apt-get install -y \
     python3-jinja2 \
     libegl1-mesa \
     libsdl1.2-dev \
-    pylint3 \
     xterm \
     python3-subunit \
     mesa-common-dev \
@@ -48,6 +47,8 @@ RUN apt-get update && apt-get install -y \
     liblz4-tool && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install GitPython pylint
 
 # Install packages added by 3mdeb
 RUN apt-get update && apt-get install -y \
