@@ -32,6 +32,8 @@ RUN apt-get update && apt-get install -y \
     libegl1-mesa \
     libncurses5-dev \
     libsdl1.2-dev \
+    liblz4-tool \
+    mesa-common-dev \
     pylint3 \
     python \
     python-dev \
@@ -41,6 +43,7 @@ RUN apt-get update && apt-get install -y \
     python3-jinja2 \
     python3-pexpect \
     python3-pip \
+    python3-subunit \
     socat \
     texinfo \
     tmux \
@@ -49,7 +52,8 @@ RUN apt-get update && apt-get install -y \
     wget \
     xsltproc \
     xterm \
-    xz-utils && \
+    xz-utils \
+    zstd && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
