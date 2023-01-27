@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:20.04
 
 LABEL maintainer="Piotr Król <piotr.krol@3mdeb.com>"
 LABEL release="kirkstone"
@@ -60,6 +60,8 @@ RUN apt-get update && apt-get install -y \
     git-lfs \
     libncurses5-dev \
     python3-dev \
+    python2.7-dev \
+    python-is-python2 \
     tmux \
     vim \
     xsltproc && \
